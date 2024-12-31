@@ -1,0 +1,146 @@
+:root{
+    --color-main:rgb(182,0,0);
+}
+
+body{
+    background: #000;
+}
+
+.sharigen{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.eye{
+    width: 400px;
+    height: 400px;
+    background: var(--color-main);
+    border-radius: 100%;
+    border: 7px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:inset 0px 0px 10px;
+}
+
+.toune_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.toune_main::before{
+    content:'';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    box-shadow: inset 0px 0px 4px black;
+    opacity: 0.5;
+    background: var(--color-main);
+    border-radius: 100%;
+}
+
+.toune_main::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 30px solid;
+    background: var(--color-main);
+    border-radius: 100%;
+}
+
+.toune_sub{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background: transparent;
+    animation: toune-1 5s forwards;
+}
+
+.toune_sub::before{
+position: absolute;
+content: '';
+width: 50px;
+height: 40px;
+background: black;
+border-radius: 100% 0px 0px 0px;
+margin-top: -45px;
+margin-left: -21px;
+}
+
+.toune_sub::after{
+position: absolute;
+content: '';
+width: 71px;
+height: 71px;
+background: var(--color-main);
+border-radius: 100% 0px 0px 100%;
+transform: skewY(14deg);
+margin-left: 55px;
+margin-top: -44px;
+clip-path: polygon(0 0,35% 0,35% 100%,0 100%);
+}
+
+#toune{
+content: '';
+position: absolute;
+width: 50px;
+height: 50px;
+border-radius: 50px;
+margin-left: -21px;
+margin-top: -25px;
+background: black;
+z-index: 1;
+}
+.toune_sub:nth-child(2){
+animation: toune-2 0s forwards;
+animation-delay: 1s;
+opacity: 0;
+transform: rotate(120deg);
+z-index: 5;
+}
+
+.toune_sub:nth-child(3){
+animation: toune-3 0s forwards;
+animation-delay: 2s;
+opacity: 0;
+transform: rotate(240deg);
+z-index:6;
+}
+
+.toune_sub:nth-child(4){
+animation: toune-3 0s forwards;
+animation-delay: 2s;
+opacity: 0;
+transform: rotate(240deg);
+z-index:7;
+}
+
+@keyframes toune-1{
+100%{
+transform: rotate(360deg);
+z-index: 0;
+}
+}
+@keyframes toune-2{
+100%{
+opacity: 1;
+z-index: 0;
+}
+}
+
+@keyframes toune-3{
+100%{
+opacity: 1;
+z-index: 0;
+}
+}
